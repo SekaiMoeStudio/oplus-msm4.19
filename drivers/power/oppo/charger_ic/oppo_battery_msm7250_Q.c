@@ -8858,7 +8858,7 @@ int oppo_chg_enable_qc_detect(void)
 	return ret;
 }
 
-int oppo_chg_set_qc_config()
+int oppo_chg_set_qc_config(void)
 {
 	int ret = -1;
 	struct smb_charger *chg = NULL;

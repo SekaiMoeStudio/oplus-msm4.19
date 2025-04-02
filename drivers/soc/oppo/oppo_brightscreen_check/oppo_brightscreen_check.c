@@ -465,7 +465,7 @@ static int get_status(void)
 
 }
 
-static int get_log_swich()
+static int get_log_swich(void)
 {
     return  (BRIGHT_STATUS_CHECK_ENABLE == get_status()||BRIGHT_STATUS_CHECK_DEBUG == get_status())&& g_bright_data.get_log;
 }

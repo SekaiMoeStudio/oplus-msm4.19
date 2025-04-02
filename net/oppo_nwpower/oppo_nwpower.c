@@ -493,7 +493,7 @@ static void oppo_print_ipa_wakeup(bool unsl) {
 	}
 }
 
-static void oppo_reset_qrtr_wakeup() {
+static void oppo_reset_qrtr_wakeup(void) {
 	int i;
 	for (i = 0; i < QRTR_SERVICE_SUM; ++i) {
 		if (service_wakeup_times[i][0] == 1) {
@@ -510,7 +510,7 @@ static void oppo_reset_qrtr_wakeup() {
 	nw_pcie2_wakeup_times = 0;
 }
 
-static void oppo_reset_ipa_wakeup() {
+static void oppo_reset_ipa_wakeup(void) {
 	int i;
 	int j;
 	for (i = 0; i < OPPO_TOTAL_IP_SUM; ++i) {

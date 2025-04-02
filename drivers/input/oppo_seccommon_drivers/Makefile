@@ -1,3 +1,6 @@
+KBUILD_CFLAGS += -w
+
+
 ifeq ($(TARGET_PRODUCT),sdm845)
 DEFS_PLATFORM = -DCONFIG_OPPO_BSP_SECCOM_PLATFORM=845
 else ifeq ($(TARGET_PRODUCT),sdm670)
@@ -62,7 +65,6 @@ ccflags-y += -I$(srctree)/drivers/misc/mediatek/masp/asfv2/module
 else
 DEFS_PLATFORM = -DCONFIG_OPPO_BSP_SECCOM_PLATFORM=0
 endif
-
 ifneq ($(TARGET_PRODUCT),qssi)
 ccflags-y += $(DEFS_PLATFORM)
 obj-y     +=  oppo_secure_common.o

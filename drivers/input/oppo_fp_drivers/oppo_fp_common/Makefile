@@ -1,3 +1,5 @@
+KBUILD_CFLAGS += -w
+
 ifeq ($(TARGET_PRODUCT),sdm660_64)
 DEFS_PLATFORM = -DCONFIG_OPPO_FINGERPRINT_PLATFORM=660
 else ifeq ($(TARGET_PRODUCT),msm8953_64)
@@ -70,6 +72,5 @@ ccflags-y += -DQCOM_PLATFORM
 else ifeq ($(CONFIG_OPPO_FINGERPRINT_MTK),y)
 ccflags-y += -DMTK_PLATFORM
 endif
-
 obj-y     +=  oppo_fp_common.o
 

@@ -14,7 +14,7 @@
 #define SLPI_CRASH_REASON_BUF_LEN 128
 static wait_queue_head_t slpi_crash_reason_wq;
 static char slpi_reason_buf[SLPI_CRASH_REASON_BUF_LEN] = {0};
-static slpi_crash_reason_flag = 0;
+static int slpi_crash_reason_flag = 0;
 void slpi_crash_reason_set(char * buf)
 {
         if ((buf != NULL) && (buf[0] != '\0')) {

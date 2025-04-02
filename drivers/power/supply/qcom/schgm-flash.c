@@ -19,7 +19,7 @@
 /* zhangkun@BSP.CHG.Basic, 2019/03/25, Remove for charging */
 //#include "smb5-lib.h"
 #endif
-#include "../../../../../../vendor/oppo_charger/oppo/charger_ic/oppo_battery_msm7250_Q.h"
+#include "oppo_battery_msm7250_Q.h"
 
 //#include "schgm-flash.h"
 
