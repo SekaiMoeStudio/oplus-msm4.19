@@ -68,3 +68,4 @@ config OPPO_AGING_DEBUG_CONFIG
 	default y if OPPO_AGING_TEST = "true"
 	default n
 
+source "techpack/Kconfig"
