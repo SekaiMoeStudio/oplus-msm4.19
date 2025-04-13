@@ -1921,7 +1921,7 @@ static inline int gsi_enable_fw(
 	return -GSI_STATUS_UNSUPPORTED_OP;
 }
 
-static inline void gsi_get_inst_ram_offset_and_size(unsigned long *base_offset,
+static inline int gsi_get_inst_ram_offset_and_size(unsigned long *base_offset,
 		unsigned long *size, enum gsi_ver ver)
 {
 	return -GSI_STATUS_UNSUPPORTED_OP;
