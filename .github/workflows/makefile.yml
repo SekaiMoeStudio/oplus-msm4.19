@@ -28,7 +28,7 @@ jobs:
     - name: build
       run: |
         export PATH="/usr/lib/ccache:/usr/local/opt/ccache/libexec:$PATH"
-        make ARCH=arm64 O=out CC="ccache clang" LD=ld.lld CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnuabeihf- reno3pro_defconfig all -j8
+        make ARCH=arm64 O=out CC="ccache clang" LD=ld.lld HOSTCC="ccache clang" CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnuabeihf- CLANG_TRIPLE=aarch64-linux-gnu- reno3pro_defconfig all -j8
 
     - name: Upload
       uses: actions/upload-artifact@v4
