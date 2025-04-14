@@ -1,0 +1,37 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install dep
+      run:  |
+        sudo apt update
+        sudo apt install -y binutils-aarch64-linux-gnu binutils-arm-linux-gnueabihf bc bison flex clang lld
+
+    - name: ccache
+      uses: hendrikmuhs/ccache-action@v1.2
+      with:
+        key: ${{ github.job }}-${{ matrix.os }}
+        create-symlink: true
+
+    - name: build
+      run: |
+        export PATH="/usr/lib/ccache:/usr/local/opt/ccache/libexec:$PATH"
+        make ARCH=arm64 O=out CC="ccache clang" LD=ld.lld CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnuabeihf- reno3pro_defconfig all -j8
+
+    - name: Upload
+      uses: actions/upload-artifact@v4
+      with:
+        name: kernel
+        path: out/arch/arm64/boot/Image*
