@@ -17,7 +17,7 @@ jobs:
     - name: Install dep
       run:  |
         sudo apt update
-        sudo apt install -y binutils binutils-arm-linux-gnueabihf bc bison flex clang lld
+        sudo apt install -y ccache binutils binutils-arm-linux-gnueabihf bc bison flex clang lld
 
     - name: ccache
       uses: hendrikmuhs/ccache-action@v1.2
@@ -28,7 +28,7 @@ jobs:
     - name: build
       run: |
         export PATH="/usr/lib/ccache:/usr/local/opt/ccache/libexec:$PATH"
-        make O=out CC="ccache clang" LD=ld.lld HOSTCC="ccache clang" reno3pro_defconfig all -j8
+        make O=out CC="ccache clang" LD=ld.lld HOSTCC="ccache clang" HOSTLD=ld.lld reno3pro_defconfig all -j8
 
     - name: Upload
       uses: actions/upload-artifact@v4
